@@ -1,0 +1,11 @@
+# Redact engine — automatic HTTPS in front of uvicorn.
+# Replace the domain and email, then: sudo systemctl restart caddy
+#
+# You need a domain (or subdomain) pointed at this server's public IP,
+# e.g. an A record for api.redact.example.com -> <your Oracle IP>.
+
+api.redact.example.com {
+	encode gzip
+	reverse_proxy 127.0.0.1:8000
+	tls you@example.com
+}

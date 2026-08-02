@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Redact">
+  <defs>
+    <clipPath id="card"><rect x="24" y="24" width="464" height="464" rx="96"/></clipPath>
+  </defs>
+  <!-- paper card -->
+  <rect x="24" y="24" width="464" height="464" rx="96" fill="#E7E4DB"/>
+  <!-- faint ruled baselines -->
+  <g clip-path="url(#card)" stroke="#17150F" stroke-opacity="0.07" stroke-width="2">
+    <line x1="24" y1="150" x2="488" y2="150"/>
+    <line x1="24" y1="226" x2="488" y2="226"/>
+    <line x1="24" y1="302" x2="488" y2="302"/>
+    <line x1="24" y1="378" x2="488" y2="378"/>
+  </g>
+  <!-- field labels (short faint ticks) -->
+  <g fill="#17150F" fill-opacity="0.28">
+    <rect x="96" y="184" width="34" height="16" rx="4"/>
+    <rect x="96" y="260" width="34" height="16" rx="4"/>
+    <rect x="96" y="336" width="34" height="16" rx="4"/>
+  </g>
+  <!-- redaction bars: two ink, one amber -->
+  <rect x="150" y="170" width="212" height="44" rx="9" fill="#14120B"/>
+  <rect x="150" y="246" width="266" height="44" rx="9" fill="#14120B"/>
+  <rect x="150" y="322" width="150" height="44" rx="9" fill="#C6902A"/>
+</svg>

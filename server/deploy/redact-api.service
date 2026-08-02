@@ -1,0 +1,23 @@
+[Unit]
+Description=Redact scanning engine (FastAPI + Playwright)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+WorkingDirectory=__APP_DIR__
+# Lock this to your site's origin in production, e.g.:
+#   Environment=REDACT_ALLOW_ORIGIN=https://davidfliesen.github.io
+Environment=REDACT_ALLOW_ORIGIN=*
+Environment=REDACT_CONCURRENCY=4
+# Set to 1 only while smoke-testing a deployment:
+# Environment=REDACT_DEMO=1
+ExecStart=__APP_DIR__/.venv/bin/uvicorn main:app --host 127.0.0.1 --port 8000
+Restart=on-failure
+RestartSec=3
+# modest memory guard for the free tier
+MemoryMax=2G
+
+[Install]
+WantedBy=multi-user.target
