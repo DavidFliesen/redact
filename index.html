@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Redact — take your data back</title>
+  <meta name="description" content="Remove your address, phone, and email from data broker databases. Runs entirely on your device — no server, no accounts." />
+  <meta name="theme-color" content="#17150F" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <p class="eyebrow">Local only · no server · no account</p>
+      <h1 class="brand">Redact<span class="dot">.</span></h1>
+      <p class="lede">Take your address, phone, and email back from the brokers who sell them.</p>
+
+      <div class="record" aria-hidden="true">
+        <div class="rec-head"><span>Broker record · public listing</span><span>EXPOSED</span></div>
+        <div class="rec-row"><span class="rec-key">name</span><span>James R. Calloway</span></div>
+        <div class="rec-row"><span class="rec-key">address</span><span class="bar b1"></span></div>
+        <div class="rec-row"><span class="rec-key">phone</span><span class="bar b2"></span></div>
+        <div class="rec-row"><span class="rec-key">email</span><span class="bar b3"></span></div>
+      </div>
+
+      <div class="actions">
+        <a href="#info" class="btn amber">Start with your info</a>
+        <a href="#brokers" class="btn ghost">See the brokers</a>
+      </div>
+    </header>
+
+    <div class="progress-block">
+      <div class="progress-top">
+        <span>Records redacted</span>
+        <span><b id="pct">0</b>% · <span id="count">0 of 0</span></span>
+      </div>
+      <div class="track"><div class="fill" id="fill"></div></div>
+    </div>
+
+    <!-- YOUR INFO -->
+    <section id="info">
+      <div class="section-label">Your info <span>stored on this device only</span></div>
+      <div class="field">
+        <label for="f-name">Full name</label>
+        <input id="f-name" type="text" autocomplete="name" placeholder="Jane Q. Public" />
+      </div>
+      <div class="field">
+        <label for="f-address">Street address</label>
+        <input id="f-address" type="text" autocomplete="street-address" placeholder="123 Main St" />
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label for="f-city">City</label>
+          <input id="f-city" type="text" autocomplete="address-level2" placeholder="Summerville" />
+        </div>
+        <div class="field">
+          <label for="f-state">State / ZIP</label>
+          <input id="f-state" type="text" placeholder="SC 29483" />
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="field">
+          <label for="f-phone">Phone</label>
+          <input id="f-phone" type="tel" autocomplete="tel" placeholder="(555) 010-1234" />
+        </div>
+        <div class="field">
+          <label for="f-email">Email</label>
+          <input id="f-email" type="email" autocomplete="email" placeholder="jane@example.com" />
+        </div>
+      </div>
+      <p class="hint">This never leaves your phone. It's only used to pre-fill removal emails and is saved in this browser so you can pick up where you left off.</p>
+    </section>
+
+    <!-- BROKERS -->
+    <section id="brokers">
+      <div class="section-label">Brokers <span id="broker-meta">loading…</span></div>
+      <div class="chips" id="chips"></div>
+      <div id="broker-list"></div>
+    </section>
+
+    <footer>
+      <p class="eyebrow">The fine print</p>
+      <p class="fnote">Redact runs entirely in your browser. Because it never sends your information anywhere, there's nothing on a server to leak. Removal forms and emails open in your own apps — you stay in control of every request.</p>
+      <p class="fnote">Broker opt-out pages and addresses change often, and some brokers re-add you over time. Check back and re-run removals every few months. This tool isn't legal advice.</p>
+      <p class="fnote"><strong>California residents:</strong> the state's <a href="https://privacy.ca.gov/" target="_blank" rel="noopener">DROP platform</a> lets you delete from every registered broker with one request.</p>
+      <button class="danger" id="clear">Erase my info from this device</button>
+    </footer>
+
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
